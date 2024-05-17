@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>英文學習系統</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='uploadImg2.css') }}">
+</head>
+<body>
+    <div>
+        <button class="leave" onclick="Leave()">返回</button>
+    </div>
+
+    <h1>Image Analyzer</h1>
+
+    <form action="/uploadcustomfile2" method="post">
+        <select name="selected_image">
+            {% for file in photo_files %}
+            <option value="{{ file }}" {% if selected_file == file %}selected{% endif %}>{{ file }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit" class="button">Analyze Image</button>
+    </form>
+
+    {% if image_data %}
+    <img src="data:image/jpeg;base64,{{ image_data }}" alt="Selected Image">
+    <p><strong>Description:</strong> {{ description_text }}</p>
+
+    {% if keywords %}
+    <p><strong>Keywords:</strong> {{ keywords }}</p>
+    {% endif %}
+    {% endif %}
+</body>
+<script>
+    document.querySelector('form').addEventListener('submit', function() {
+        this.querySelector('button').innerText = 'Analyzing...';
+        this.querySelector('button').disabled = true;
+    });
+
+    function Leave() {
+        window.history.back();
+    }
+</script>
+</html>

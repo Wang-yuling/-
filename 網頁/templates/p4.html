@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>英文學習系統</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='p4.css') }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.3.1/socket.io.js"></script>
+</head>
+<body>
+    <div class="title">
+        <button class="leave"  onclick="Leave()" >返回</button>
+        <h1>會話練習</h1>
+    </div>
+    <div>
+        <button onclick="step1()">情境 & 開始對話</button>
+    </div>
+    <h3 id="situation">situation:</h3>
+    <div id="chat-container">
+        <input id="message-input" autocomplete="off" />
+        <button id="send" onclick="sendMessage()">Send</button>
+        <ul id="messages"></ul>
+    </div>
+    <div>
+        <button id="step3" onclick="step3()">查看文法錯誤</button>
+        <p>grammer error :</p>
+        <ul id="error"></ul>
+    </div>
+    <div>
+        <p id="timer">0 秒</p>
+    </div>
+<script>
+
+    var timer;  
+    var seconds = 0;  
+
+    function startTimer() {
+        if (!timer) {
+            timer = setInterval(function() {
+                seconds++;
+                document.getElementById('timer').textContent = seconds + ' 秒';
+            }, 1000); 
+        }
+    }
+    window.onload = startTimer;
+
+    function Leave(){
+        if (confirm('確定要離開測驗嗎？')) {
+            window.location.href = '/other_welcome';
+        }
+    }
+
+
+    var socket = io.connect('http://' + document.domain + ':' + location.port);
+
+    socket.on('connect', function() {
+        console.log('Connected to server');
+        //alert('Connected to server');
+    });
+
+    //seerver回傳chat對話
+    socket.on('assistant_message', function (data) {
+        var ul = document.getElementById('messages');
+        var li = document.createElement('li');
+        li.appendChild(document.createTextNode('Assistant: ' + data["message"]));
+        ul.appendChild(li);
+        li.className="assistant";
+    });
+
+    function step1(){
+        console.log("step1開始");
+        socket.emit('step1');
+    }
+
+    socket.on('step1return', function(data){
+        situation_text = data["message"];
+        console.log(situation_text);
+        var situation = document.getElementById('situation');
+        situation.innerHTML = "situation: " + situation_text;
+        console.log("step1結束");
+        step2(situation_text);
+    });
+
+    function step2(situation){
+        console.log("step2開始");
+        socket.emit('step2', {content: situation});
+        console.log("step2結束");
+    }
+
+    function step3(){
+        console.log("step3開始");
+        socket.emit('step3');
+    }
+
+    socket.on('step3return', function(data){
+        console.log(data["message"]);
+        var error = document.getElementById('error');
+        var error = document.getElementById('error');
+        var error_list = document.createElement('li');
+        error_list.appendChild(document.createTextNode('error: ' + data["message"]));
+        error.appendChild(error_list);
+        console.log("step3結束");
+    });
+    //網頁按下send按鈕
+    function sendMessage() {
+        var input = document.getElementById('message-input');
+        var message = input.value;
+        var ul = document.getElementById('messages');
+        var li = document.createElement('li');
+        li.appendChild(document.createTextNode('You: ' + message));
+        ul.appendChild(li);
+        li.className="you";
+        socket.emit('user_input', { content: message });
+        input.value = '';
+    }
+</script>
+</html>

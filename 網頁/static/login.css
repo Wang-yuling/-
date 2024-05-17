@@ -1,0 +1,87 @@
+*{
+    font-family:微軟正黑體;  
+} 
+body{
+    margin: 0;
+    padding: 0;
+    background: url('forest-3622519_1280.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+#username, #password, h3, #fullname, #comfirm_password,#username2, #password2{
+    width: 200px;
+    height: 20px;
+    margin: 10px;
+    color: #89b374;
+}
+.mode{
+    color: white;  
+    background: #89b374;
+    width: 200px;
+    height: 25px;
+    margin: 10px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 0px;
+    margin: auto;
+    position:relative;
+    top: 100px;
+    text-align:center;
+}
+h5{
+    margin: 20px;
+    color: #a3a2a3;
+} 
+h5:hover{
+    color: black;
+}  
+#student_login, #student_signup{
+    padding: 10px;
+    width: 230px;
+    height: 250px;
+    background-color: white;
+    border-radius: 5px;
+    border-top: 10px solid #89b374;
+    box-shadow: 0 0px 70px rgba(0, 0, 0, 0.1);
+    position: relative;  
+    margin: auto;
+    top: 100px;
+}
+.system_name{
+    position: relative;  
+    margin: auto;
+    top: 100px;
+    text-align:center;
+} 
+.submit{
+    color: white;  
+    background: #89b374;
+    width: 200px;
+    height: 30px;
+    margin: 10px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 0px;
+} 
+.submit:hover{
+    background: #89b374;
+} 
+#student_signup{
+    visibility: hidden;   /*消失*/
+    height: 400px;
+}
+input{
+    padding: 5px;
+    border: none;
+    border: solid 1px #ccc;
+    border-radius: 5px;
+}
+.password-container {
+    position: relative;
+}
+.toggle-password {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+}

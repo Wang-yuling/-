@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+    <title>英文學習系統首頁</title>
+</head>
+<body>
+    <div class="title">
+        <button class="login"  onclick="openPopup1()" >登入</button>
+        <button class="login"  onclick="openPopup2()" >註冊</button>
+        
+        <h1>歡迎來到英文學習系統</h1>
+    </div>
+    
+    <div class="popup-container" id="popup-container1">
+        <span class="close-btn" onclick="closePopup1()">⨯</span>
+        <p>選擇您的身分</p>
+        <div class="button">
+            <button onclick="window.location.href='/other_logint'">老師</button>
+            <button onclick="window.location.href='/other_logins'">學生</button>
+        </div>
+    </div>
+    <div class="popup-container" id="popup-container2">
+        <span class="close-btn" onclick="closePopup2()">⨯</span>
+        <p>選擇您的身分</p>
+        <div class="button">
+            <button onclick="window.location.href='/other_page1'">老師</button>
+            <button onclick="window.location.href='/other_page2'">學生</button>
+        </div>
+    </div>
+
+    <div class="slogan">
+        <h3>Elevate Your Communication , Master English Proficiency.</h3>
+        <h3>Discover the World through English : Your Pathway to Success.</h3>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; English Learning System</p>
+        </div>
+    </footer>
+
+    <!-- Button to open the introduction popup -->
+    
+    <script>
+        function openPopup1() {
+            document.getElementById("popup-container1").style.display = "block";
+        }
+
+        function closePopup1() {
+            document.getElementById("popup-container1").style.display = "none";
+        }
+
+        function openPopup2() {
+            document.getElementById("popup-container2").style.display = "block";
+        }
+
+        function closePopup2() {
+            document.getElementById("popup-container2").style.display = "none";
+        }
+    </script>
+</body>
+</html>

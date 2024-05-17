@@ -1,0 +1,119 @@
+*{
+    font-family:微軟正黑體;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background:
+    url('forest-3622519_1280.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+.title {
+    display: flex;
+    align-items: center;
+    color: #fff;
+    padding: 15px;
+    text-align: center;
+    
+}
+button{
+    color: #86ae72;
+    background: rgb(252, 255, 214);
+    font-size: 25px;
+    width: 170px;
+    height: 50px;
+    margin: 10px;
+    margin-top: 13px;
+    padding: 5px;
+    cursor: pointer;
+    border:transparent;
+    border-radius:10px;
+    border: 0px;
+    text-align: center;
+    text-decoration:none;
+}
+button:hover {
+    background: rgb(215, 217, 182);
+}
+h1{
+    margin: 0% 20%;
+    color: #89b374;
+    text-align: center;
+    font-size: 45px;
+}
+footer {
+    background-color: #33333367;
+    padding: 0px;
+    text-align: center;
+    width:100%;
+    position: absolute;
+    bottom: 0;
+}
+
+.footer-content p{
+    color: #000;
+}
+
+/*.button  button{
+    margin: 5px;
+    padding: 10px 20px;
+    color: #89b374c5;
+    font-weight: bold;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}*/
+.slogan{
+    padding: 35px;
+}
+.login{
+    color: white;
+    background: #89b374;
+    display: flex;
+    width: 70px;
+    height: 40px;
+    margin-left: 5px;
+    margin-top: 5px;
+    padding: 10px 20px;
+    font-size: 15px;
+    cursor: pointer;
+    border:transparent;
+    border-radius:10px;
+}
+.login:hover{
+    background: rgba(124, 162, 105, 0.773);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Styles for the introduction popup */
+.popup-container{
+    display: none;
+    position: fixed;
+    top: 43%;
+    left: 50%;
+    transform: translate(-50%, -40%);
+    padding: 10px;
+    width: 205px;
+    height: 220px;
+    text-align: center;
+    background-color: #89b374c5;
+    border-radius: 10px;
+    border:transparent;
+    margin:auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    z-index: 2;
+}
+P{
+    color: #fff;
+    font-size: 22px;
+    margin: 10px;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.3) ;
+}
+
+/* Styles for the close button in the popup */
+.close-btn{
+    position: fixed;
+    top: 10px;
+    right: 15px;
+    font-size: 25px;
+    cursor: pointer;
+}

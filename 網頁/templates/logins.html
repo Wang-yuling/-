@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
+
+    <title>英文學習系統</title>
+</head>
+<body>
+    <div class="system_name">
+        <h2>英文學習系統</h2>
+      </div>
+     
+      <div class="login_page">
+        <div id="student_login">
+          <div class="login">            
+            <h3>學生版登入</h3>    
+            <form method="POST" action="/logins">
+              <input type="text" id="username" name="username" placeholder="帳號" required title="請輸入英文數字組合">
+              <input type="password" id="password" name="password" placeholder="密碼" required title="請輸入英文數字組合">
+              <input type="submit" value="登入" class="submit" >
+            </form>  
+            <h5 onclick="window.location.href='/other_page2'">註冊帳號</h5>
+           
+          
+</body>
+
+</html>

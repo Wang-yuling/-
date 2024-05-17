@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>英文學習系統</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='p3.css') }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.3.1/socket.io.js"></script>
+</head>
+<body>
+    <div>
+        <button class="leave" onclick="Leave()">返回</button>
+    </div>
+    <h1>測驗：</h1>
+    <p id="count">2題選擇及3題填空，共5題。請點選下方按鈕開始測驗。</p>
+    <div>
+        <button id="start" onclick="quiz_start()">開始測驗</button>
+    </div>
+    <div>
+        <button id="see_result" onclick="see_result()">觀看正確率</button>
+    </div>
+    <div id="quiz-container">
+        <input id="answer-input" autocomplete="off" />
+        <button id="send" onclick="sendAnswer()">Send</button>
+        <ul id="quiz-list"></ul>
+    </div>
+</body>
+<script>
+    var socket = io.connect('http://' + document.domain + ':' + location.port);
+    var number = 0;
+    var question = "";
+    var question_end = "false";
+
+    socket.on('connect', function() {
+        console.log('Connected to server');
+        socket.emit('initial_quiz')
+        //alert('Connected to server');
+    });
+
+    function quiz_start(){
+        question_end = "false";
+        console.log("開始測驗");
+        //var count = document.getElementById('count');
+        number += 1;
+        socket.emit('give_question', {content: number});
+        
+    }
+
+    //server回傳chat對話
+    socket.on('assistant_message', function (data) {
+        var ul = document.getElementById('quiz-list');
+        var li = document.createElement('li');
+        li.appendChild(document.createTextNode(data["message"]));
+        ul.appendChild(li);
+        li.className="assistant";
+        question = data['content'];
+        if(question_end == "true"){
+            quiz_start();
+        }
+    });
+
+    //網頁按下send按鈕//在網頁顯示
+    function sendAnswer() {
+        question_end = "true";
+        var input = document.getElementById('answer-input');
+        var message = input.value;
+        var ul = document.getElementById('quiz-list');
+        var li = document.createElement('li');
+        li.appendChild(document.createTextNode('Your answer: ' + message));
+        ul.appendChild(li);
+        li.className="you";
+        socket.emit('user_answer', { content: message , question: question});
+        input.value = '';
+    }
+
+    socket.on('complete', function(){ 
+        var start = document.getElementById('start'); 
+        var count = document.getElementById('count'); 
+        var see_result = document.getElementById('see_result'); 
+        start.style.display = "none"; 
+        count.innerHTML = "5題皆作答完成，請點選按鈕觀看正確率。"; 
+        see_result.style.display = "block"; 
+        var send = document.getElementById('send'); 
+        var answer_input = document.getElementById('answer-input'); 
+        send.style.display = "none"; 
+        answer_input.style.display = "none"; 
+    });
+
+    function see_result(){
+        socket.emit('see_result');
+    }
+
+    socket.on('result', function(data){
+        
+        var count = document.getElementById('count');
+        count.innerHTML = "5題皆作答完成，" + data["message"];
+    });
+
+    //範本
+    socket.on('', function(){
+        
+    });
+
+
+    function Leave(){
+            if (confirm('確定要離開測驗嗎？')) {
+                window.location.href = '/other_welcome';
+            }
+        }
+</script>
+</html>

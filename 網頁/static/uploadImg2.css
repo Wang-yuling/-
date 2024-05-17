@@ -1,0 +1,61 @@
+body{
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    padding: 0;
+    background-color: rgba(226, 226, 226, 0.9);
+    color: #333;
+}
+
+.leave{
+    width: 57px;
+    height: 35px;
+    border-radius: 20px;
+    font-size: 17px;
+}
+
+/* 選擇檔案 */
+select{
+    width: 300px;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 1em;
+}
+
+/* 產生圖片描述 */
+button {
+    background: #79b374;
+    color: white;
+    font-size: 20px;
+    width: 155px;
+    height: 40px;
+    margin: 10px;
+    padding: 5px;
+    border-radius: 15px;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    text-decoration:none;
+    box-shadow: 5px 5px 5px 1px #ABB2B9;
+}
+button:hover {
+    background: #6da068;
+    box-shadow:5px 5px 5px 1px #ABB2B9;
+}
+
+/* 圖片 */
+img{
+    max-width: 500px;
+    height: auto;
+    margin-top: 20px;
+}
+
+h1{
+    margin: 20px;
+    color: #668557;
+
+}
+
+p{
+    font-size: 18px;
+    margin: 10px;
+}

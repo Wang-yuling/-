@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='p1.css') }}">
+
+    <title>英文學習系統</title>
+</head>
+<body>
+    <div class="system_name">
+        <h2>英文學習系統</h2>
+    </div>     
+    <div class="signup_page">
+        <div id="student_signup"> 
+            <div class="signup">             
+                <h3>教師版註冊</h3>
+                <form method="POST" action="/other_page1">
+                <input type="text" id="fullname" name="fullname" placeholder="使用者全名" required title="請輸入英文數字組合">
+                <input type="text" id="username2" name="username2" placeholder="帳號" required title="請輸入英文數字組合">
+                <input type="password" id="password2" name="password2" placeholder="密碼" required title="請輸入英文數字組合">
+                <input type="password" id="comfirm_password" name="comfirm_password" placeholder="密碼確認" required title="請輸入英文數字組合">
+                <input type="text" id="mail" name="mail" placeholder="電子郵件" required title="請填寫這個欄位"> 
+
+                <br>
+                <input type="submit" value="註冊" class="submit">
+                </form>  
+                <h5 onclick="window.location.href='/other_logint'">登入帳號</h5>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

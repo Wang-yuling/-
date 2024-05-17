@@ -1,0 +1,108 @@
+*{
+    font-family: arial;  
+}
+body{
+    background-color: rgba(226, 226, 226, 0.9);
+}
+h1{
+    margin: 6px 20px;
+    font-size: 30px;
+    /*display: inline-block;*/
+}
+h3{
+    margin: 6px 20px;
+    font-size: 23px;
+    /*display: inline-block;*/
+}
+#step1{
+    width: 150px;
+    height: 40px;
+    display: block;
+    font-weight: bold;
+}
+#send{
+    width: 60px;
+    height: 35px;
+    display: inline-block;
+    position: absolute;
+    bottom: -50px;
+    /*position: fixed;
+    top: 90%;*/
+    left: 65%;
+}
+#step3{
+    width: 170px;
+    height: 35px;
+    display: block;
+}
+.leave{
+    margin: 10px 15px;
+    width: 55px;
+    height: 35px;
+    border-radius: 20px;
+    font-size: 17px;
+}
+button{
+    color: black;  
+    background: #FFE153;
+    font-size: 18px;
+    margin: 10px;
+    padding: 5px;
+    border-radius: 10px;
+    border: 0px;
+    text-align: center;
+    text-decoration:none;
+    box-shadow: 5px 5px 5px 1px #ABB2B9;
+}
+button:hover{
+    background: #EAC100;
+    box-shadow: 5px 5px 5px 1px #949aa0;
+}
+#message-input{
+    width: 450px;
+    height: 28px;
+    font-size: 16px;
+    margin: 10px;
+    border-radius: 7px;
+    position: absolute;
+    bottom: -50px;
+    /*position: fixed;
+    top: 90%;*/
+    left: 30%;
+}
+.assistant{
+    width: fit-content;
+    font-size: 16px;
+    list-style: none;
+    background-color: #D7BDE2;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    position: relative;
+}
+.you{
+    display: table;
+    font-size: 16px;
+    list-style: none;
+    text-align: right;
+    background-color: #D6DBDF;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    position: relative;
+}
+#chat-container{
+    margin-bottom: 70px;
+    position: relative;
+    min-height: 400px;
+}
+p{
+    margin-left: 20px;
+}
+/*h1{
+    padding: 0px 10px;
+}
+h3{
+    padding: 0px 20px;
+}
+*/

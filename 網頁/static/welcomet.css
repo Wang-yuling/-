@@ -1,0 +1,54 @@
+*{
+    font-family:微軟正黑體;
+}
+body {
+    margin: 0;
+    padding: 0;
+    background-color: rgba(226, 226, 226, 0.9);
+}
+h1{
+    position:relative;
+    margin:auto;
+    text-align: center;
+    font-size: 30px;
+    margin-top: 20px;
+    color: #72a96e;
+}
+.container{
+    padding: 15px;
+    width: 300px;
+    height: 250px;
+    background-color: #FFFFFFc5;
+    border-radius: 15px;
+    border: 3.5px solid #72a96e;
+    box-shadow: 0 0px 70px rgba(0, 0, 0, 0.1);
+
+    position:relative;
+    margin:auto;
+    top:170px;
+}
+.contain{
+    position:relative;
+    margin:auto;
+    top:8px;
+}
+button{
+    color: white;  
+    background: #79b374;
+    font-size: 25px;
+    width: 260px;
+    height: 53px;
+    margin: 19px;
+    margin-top: 25px;
+    padding: 5px;
+    border-radius: 15px;
+    border: 0px;
+    display: block;
+    text-align: center;
+    text-decoration:none;
+    box-shadow: 5px 5px 5px 1px #CCD1D1;
+}
+button:hover{
+    background: #6da068;
+    box-shadow:5px 5px 5px 1px #ABB2B9;
+}

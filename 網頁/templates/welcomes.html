@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='welcomes.css') }}">
+    <title>英文學習系統</title>
+    
+</head>
+<body>
+    <div class="container">
+        <h1>請選擇想要的模式</h1>
+        <div class="contain">
+            <button onclick="window.location.href='/other_page4'">會話練習</button>
+            <button onclick="window.location.href='/other_page3'">隨機測驗</button>
+        </div>
+    </div>
+    <div class="marquee">
+            <ul id="marquee-list"></ul>
+    </div>
+</body>
+<script>
+
+    const sentences = [
+    "Give it a try",
+    "What are you waiting for",
+    "Keep up the good work",
+    "Don’t give up",
+    "No cross, no crown",
+    "In the dull and boring world, there is also occasional luck",
+    "Stars can’t shine without darkness",
+    "You can’t be perfect but you can be unique",
+    "Light tomorrow with today",
+    "All things in their being are good for something"
+    ];
+
+    const marqueeList = document.getElementById("marquee-list");
+
+    // 隨機排列句子
+    const shuffledSentences = sentences.sort(() => Math.random() - 0.5);
+
+    // 在跑馬燈中添加句子
+    shuffledSentences.forEach(sentence => {
+    const listItem = document.createElement("li");
+    listItem.textContent = sentence;
+    marqueeList.appendChild(listItem);
+    });
+
+
+</script>
+
+</html>

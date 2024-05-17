@@ -1,0 +1,44 @@
+*{
+    font-family:微軟正黑體;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    padding: 20px;
+    
+}
+.button {
+    display: flex;
+    flex-direction: row;
+    margin-top: 30px;
+    margin-left: 515px;
+
+}
+button{
+    padding: 10px 20px;
+    margin: 50px;
+    font-size: 16px;
+    border:transparent;
+    border-radius:10px;
+    background-color: #89b374c5;
+    color: #fff;
+}
+
+button:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+    margin: 0%;
+    color: #89b374;
+}

@@ -1,0 +1,67 @@
+body {
+    font-family:微軟正黑體, serif;
+    background-color: rgba(226, 226, 226, 0.9);
+}
+
+.leave{
+    width: 57px;
+    height: 35px;
+    border-radius: 20px;
+    font-size: 17px;
+}
+
+/*標題*/
+#img{
+    text-align: center;
+    margin: 20px;
+    font-weight: bold;
+    font-size: 28px;
+    color: #668557;
+    
+}
+
+form {
+    max-width: 300px;
+    margin: auto;
+    padding: 20px;
+    background-color: #FFFFFFc5;
+    border-radius: 15px;
+    border: 3.5px solid #72a96e;
+    box-shadow: 0 0px 70px rgba(0, 0, 0, 0.1);
+}
+
+/*選擇檔案*/
+input[type="file"] {
+    font-family:微軟正黑體, serif;
+    margin: 15px;
+    font-size: 18px;
+}
+
+/*上傳照片button*/
+button {
+    background: #79b374;
+    color: white;
+    font-size: 20px;
+    width: 100px;
+    height: 40px;
+    margin: 10px;
+    padding: 5px;
+    border-radius: 15px;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    text-decoration:none;
+    box-shadow: 5px 5px 5px 1px #ABB2B9;
+}
+button:hover {
+    background: #6da068;
+    box-shadow:5px 5px 5px 1px #ABB2B9;
+}
+
+/*上傳狀態*/
+#uploadStatus{
+    text-align: center;
+    margin: 20px;
+    font-size: 20px;
+}
+
